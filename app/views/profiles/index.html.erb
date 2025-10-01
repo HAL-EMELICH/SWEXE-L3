@@ -1,0 +1,29 @@
+<% if flash[:notice] %>
+  <p><%= flash[:notice] %></p>
+<% end %>
+
+<h1>プロフィール一覧</h1>
+
+<% @profiles.each do |profile| %>
+  <% if profile.image.attached? %>
+    <%= image_tag profile.image %>
+  <% else %>
+    <p>画像はありません</p>
+  <% end %>
+  
+  <p><%= link_to profile.name, profile %></p>
+  <%= profile.detail %>
+  <br>
+  
+  <%= link_to '表示', "/profiles/#{profile.id}" %>
+  
+  <%= link_to '編集', "/profiles/#{profile.id}/edit" %>
+  
+  <%= link_to '削除', "/profiles/#{profile.id}", data: {turbo_method: :delete} %>
+  <br>
+  <br>
+  <br>
+  <br>
+<% end %>
+
+ <p><%= link_to '新規追加', '/profiles/new' %></p>

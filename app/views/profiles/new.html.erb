@@ -1,0 +1,25 @@
+<% if @profile.errors.present? %>
+  <div id="error_explanation">
+      <h2>There are errors:</h2>
+      <ul>
+        <% @profile.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+  </div>
+<% end %>
+
+
+<%= form_with model: @profile, multipart: true do |f| %>
+
+  <%= f.label :name, 'Name' %>
+  <%= f.text_field :name %>
+  
+  <%= f.label :detail, 'Detail' %>
+  <%= f.text_field :detail %>
+  
+  <%= f.label :image, 'Image' %>
+  <%= f.file_field :image %>
+  
+  <%= f.submit 'Submit' %>
+<% end %>
