@@ -345,6 +345,7 @@ PLATFORMS
 DEPENDENCIES
   bootsnap
   brakeman
+  bundler (= 2.4.10)
   capybara
   debug
   importmap-rails
