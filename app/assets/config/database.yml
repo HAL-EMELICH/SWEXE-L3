@@ -5,8 +5,8 @@ default: &default
 
 production:
   <<: *default 
-  url: <%= ENV.fetch("DATABASE_URL") %>
+  url: <%= ENV['postgresql://mysite_etth_user:MqoNvkAv3o4hgaJijtM8qEXRWuIEWWsB@dpg-d3ecqcmr433s73eh3hvg-a/mysite_etth'] %>
 
 queue:
   <<: *default 
-  url: <%= ENV.fetch("DATABASE_URL") %>
+  url: <%= ENV['postgresql://mysite_etth_user:MqoNvkAv3o4hgaJijtM8qEXRWuIEWWsB@dpg-d3ecqcmr433s73eh3hvg-a/mysite_etth'] %>
