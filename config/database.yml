@@ -18,9 +18,7 @@ development:
 production:
   # Renderの環境変数 'DATABASE_URL' を使ってデータベースに接続する標準的な記述
   url: <%= ENV['postgresql://mysite_etth_user:MqoNvkAv3o4hgaJijtM8qEXRWuIEWWsB@dpg-d3ecqcmr433s73eh3hvg-a/mysite_etth'] %>
-  # もしRAILS_MAX_THREADSを使わないなら、poolは直接設定しても良い
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  
   queue:
     <<: *default
     url: <%= ENV.fetch('postgresql://mysite_etth_user:MqoNvkAv3o4hgaJijtM8qEXRWuIEWWsB@dpg-d3ecqcmr433s73eh3hvg-a/mysite_etth') %>
