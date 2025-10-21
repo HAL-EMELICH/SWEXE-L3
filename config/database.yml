@@ -1,15 +1,10 @@
-default: &default
-  adapter: postgresql
-  encoding: unicode
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  timeout: 5000
-
+# ... (production部分は変更なし)
 production:
   <<: *default
-  # DATABASE_URL 環境変数全体を使用
   url: <%= ENV.fetch('DATABASE_URL') %>
-  
+  pool: <%= ENV.fetch('RAILS_MAX_THREADS') { 5 } %> # これはあってもOK
+
 queue:
   <<: *default
-  # production と同じ接続を使用
+  # pool設定を削除してシンプルにする
   url: <%= ENV.fetch('DATABASE_URL') %>
