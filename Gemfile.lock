@@ -361,8 +361,6 @@ DEPENDENCIES
   rails-i18n
   rubocop-rails-omakase
   selenium-webdriver
-  solid_cache
-  solid_queue
   sprockets-rails
   sqlite3 (>= 2.1)
   stimulus-rails
