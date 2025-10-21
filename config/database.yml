@@ -1,25 +1,15 @@
 default: &default
-  adapter: postgresql # RenderはPostgreSQLを使うため、defaultも変更
+  adapter: postgresql
   encoding: unicode
-  # 接続プールの設定。RENDER環境変数を活用
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   timeout: 5000
 
-# 開発環境はローカルで使うPostgreSQLまたは以前のsqlite3に戻します
-development:
-  <<: *default
-  # ローカル開発でPostgreSQLを使うなら、以下を有効化（使わないならコメントアウト）
-  # database: your_app_development
-  # username: your_username
-  # password: your_password
-  # host: localhost
-
-# 本番環境 (Render)
 production:
-  # Renderの環境変数 'DATABASE_URL' を使ってデータベースに接続する標準的な記述
+  <<: *default
+  # DATABASE_URL 環境変数全体を使用
   url: <%= ENV.fetch('DATABASE_URL') %>
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  queue:
-    <<: *default
-    url: <%= ENV.fetch('DATABASE_URL') %>
-    pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  
+queue:
+  <<: *default
+  # production と同じ接続を使用
+  url: <%= ENV.fetch('DATABASE_URL') %>
