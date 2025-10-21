@@ -3,11 +3,7 @@ default: &default
   encoding: unicode
   pool: 5
   timeout: 5000
-
-development:
-  <<: *default
-  database: your_app_development # ローカル環境のDB名 (必要に応じて修正)
-
+  
 production:
   <<: *default
   url: <%= ENV.fetch('DATABASE_URL') %>
