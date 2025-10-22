@@ -22,4 +22,5 @@ Rails.application.configure do
   config.assets.paths << Rails.root.join("app", "assets", "images")
   config.assets.manifest = Rails.root.join("public", "assets")
   config.assets.digest = true
+  config.assets.compile = true
 end
