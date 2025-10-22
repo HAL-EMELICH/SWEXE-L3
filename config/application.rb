@@ -20,10 +20,11 @@ Bundler.require(*Rails.groups)
 module App1
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
-    config.load_defaults 8.0
+    config.load_defaults 7.0
     config.autoload_lib(ignore: %w[assets tasks])
     config.time_zone = 'Asia/Tokyo'
     config.active_record.default_timezone = :local
+    config.active_record.yaml_column_permitted_classes = [Symbol, Date, Time, ActiveSupport::TimeZone, ActiveSupport::TimeWithZone, YAML::DisallowedClass]
     #config.i18n.default_locale = :ja
   end
 end
