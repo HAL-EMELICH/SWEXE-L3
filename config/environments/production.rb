@@ -18,6 +18,8 @@ Rails.application.configure do
   config.public_file_server.enabled = ENV["RAILS_SERVE_STATIC_FILES"].present?
   config.action_dispatch.trust_proxy = true
   config.assets.paths << Rails.root.join("app", "assets", "stylesheets")
-config.assets.paths << Rails.root.join("app", "assets", "javascripts")
-config.assets.paths << Rails.root.join("app", "assets", "images")
+  config.assets.paths << Rails.root.join("app", "assets", "javascripts")
+  config.assets.paths << Rails.root.join("app", "assets", "images")
+  config.assets.manifest = Rails.root.join("public", "assets")
+  config.assets.digest = true
 end
