@@ -19,8 +19,8 @@ class ProfilesController < ApplicationController
   end
   
   def destroy
-    profile = Profile.find(params[:id])
-    profile.destroy
+    @profile = Profile.find(params[:id])
+    @profile.destroy
     flash[:notice] = '1 record deleted'
     redirect_to '/'
   end

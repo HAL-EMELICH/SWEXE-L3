@@ -19,7 +19,7 @@
   
   <%= link_to '編集', edit_profile_path(profile) %>  
   
-  <%= link_to '削除', profile_path(profile), data: { turbo_method: :delete } %>
+  <%= link_to '削除', @profile, method: :delete, data: { confirm: '本当に削除しますか？' } %>
   
   <br>
   <br>
