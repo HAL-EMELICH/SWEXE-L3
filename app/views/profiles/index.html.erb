@@ -19,7 +19,8 @@
   
   <%= link_to '編集', edit_profile_path(profile) %>  
   
-<%= link_to '削除', "/profiles/#{profile.id}", data: {turbo_method: :delete} %>  <br>
+  <%= link_to '削除', profile_path(profile), data: { turbo_method: :delete, turbo_confirm: '本当に削除しますか？' } %>  <br>
+  <br>
   <br>
   <br>
 <% end %>
